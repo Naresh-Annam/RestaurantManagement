@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant View Page</title>
+</head>
+<body>
+div align="center">
+<h1>Restaurants List</h1>
+<a href="new">Create New Restaurant</a>
+<br/><br/>
+<table border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Restaurant Name</th>
+        <th>Address</th>
+        <th>Recipes</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <body>
+    <tr th:each="restaurant : ${listRestaurants}">
+        <td th:text="${restaurant.restaurantName}">Restaurant Name</td>
+        <td th:text="${restaurant.address}">address</td>
+        <td th:text="${restaurant.recipes}">recipes</td>
+
+        <td>
+            <a th:href="@{'/view/' + ${restaurant.id}}">view</a>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/publish/' + ${restaurant.id}}">publish</a>
+        </td>
+    </tr>
+    </body>
+</table>
+</div>
+</body>
+</html>
